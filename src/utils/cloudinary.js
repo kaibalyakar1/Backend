@@ -1,5 +1,6 @@
 import { v2 as kk } from "cloudinary";
 import { response } from "express";
+
 // eslint
   import fs from "fs"
 
@@ -10,10 +11,10 @@ import { response } from "express";
     api_key: process.env.CLOUDINARY_API_KEY, 
     api_secret:process.env.CLOUDINARY_API_SECRET  
   });
-  const uploadOnCloudinary = async (localPath) => {
+  const uploadOnCloudinary = async (localFilePath) => {
     try{
-     if(!localPath) return null
-     await cloudinary.uploader.upload(localPath , {
+     if(!localFilePath) return null
+     await cloudinary.uploader.upload(localFilePath , {
         resource_type: "auto"
      })
      console.log("File uploaded successfully",
